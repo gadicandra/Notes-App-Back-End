@@ -1,1 +1,7 @@
+# Dependencies
 node_modules/
+notes-api-web-server.pem
+
+# Environtment Variable
+.env
+.prod.env
