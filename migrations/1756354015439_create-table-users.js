@@ -1,36 +1,29 @@
 /**
  * @type {import('node-pg-migrate').ColumnDefinitions | undefined}
  */
-export const shorthands = undefined;
+exports.shorthands = undefined;
 
 /**
  * @param pgm {import('node-pg-migrate').MigrationBuilder}
  * @param run {() => void | undefined}
  * @returns {Promise<void> | void}
  */
-export const up = (pgm) => {
-    pgm.createTable('notes', {
+exports.up = (pgm) => {
+    pgm.createTable('users', {
         id: {
             type: 'VARCHAR(50)',
             primaryKey: true,
         },
-        title: {
+        username: {
+            type: 'VARCHAR(50)',
+            unique: true,
+            notNull: true,
+        },
+        password: {
             type: 'TEXT',
             notNull: true,
         },
-        body: {
-            type: 'TEXT',
-            notNull: true,
-        },
-        tags: {
-            type: 'TEXT[]',
-            notNull: true,
-        },
-        created_at: {
-            type: 'TEXT',
-            notNull: true,
-        },
-        updated_at: {
+        fullname: {
             type: 'TEXT',
             notNull: true,
         },
@@ -43,5 +36,5 @@ export const up = (pgm) => {
  * @returns {Promise<void> | void}
  */
 exports.down = (pgm) => {
-    pgm.dropTable('notes');
+    pgm.dropTable('users');
 };

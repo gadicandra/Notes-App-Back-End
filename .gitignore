@@ -5,3 +5,6 @@ notes-api-web-server.pem
 # Environtment Variable
 .env
 .prod.env
+
+# File Upload
+src/api/uploads/file
